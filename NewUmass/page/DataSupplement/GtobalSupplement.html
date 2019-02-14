@@ -1,0 +1,527 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>公司基本信息</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=yes">
+    <link rel="stylesheet" href="../../layui/css/layui.css" media="all" />
+    <link rel="stylesheet" href="../../css/user.css" media="all" />
+</head>
+<body class="childrenBody">
+    <form class="layui-form">
+        <div class="layui-form-item">
+            <label class="layui-form-label">企业类型</label>
+            <div class="layui-input-block">
+                <select class="select" id="corporation" name="corporation" lay-verify="required" lay-search="">
+                    <option value=''>请选择</option>
+                    <option value="国企">国企</option>
+                    <option value="民营公司">民营公司</option>
+                    <option value="事业单位">事业单位</option>
+                    <option value="外资(欧美)">外资(欧美)</option>
+                    <option value="外资(非欧美)">外资(非欧美)</option>
+                    <option value="合资(欧美)">合资(欧美)</option>
+                    <option value="合资(非欧美)">合资(非欧美)</option>
+                    <option value="外企代表处">外企代表处</option>
+                    <option value="其它性质">其它性质</option>
+                </select>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">经营模式</label>
+            <div class="layui-input-block">
+                <select class="select" id="modeId" name="modeId" lay-verify="required" lay-search="">
+                    <option value=''>请选择</option>
+                    <option value="1">生产加工</option>
+                    <option value="2">经销批发</option>
+                    <option value="3">招商代理</option>
+                    <option value="4">商业服务</option>
+                    <option value="5">其他</option>
+                </select>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">分类</label>
+            <div class="layui-input-inline">
+                <select class="select" id="Classification1" name="Classification1" lay-filter="Classification1" lay-verify="required" lay-search="">
+                    <option value=''>请选择</option>
+                </select>
+            </div>
+            <div class="layui-input-inline">
+                <select class="select" id="Classification2" name="Classification2" lay-filter="Classification2" lay-verify="required" lay-search="">
+                    <option value=''>请选择</option>
+                </select>
+            </div>
+            <div class="layui-input-inline">
+                <select class="select" id="Classification3" name="Classification3" lay-filter="Classification3"  lay-search="">
+                    <option value=''>请选择</option>
+                </select>
+            </div>
+            <div class="layui-input-inline">
+                <select class="select" id="Classification4" name="Classification4" lay-filter="Classification4"  lay-search="">
+                    <option value=''>请选择</option>
+                </select>
+            </div>
+            <div class="layui-input-inline">
+                <select class="select" id="Classification5" name="Classification5" lay-filter="Classification5"  lay-search="">
+                    <option value=''>请选择</option>
+                </select>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">区域</label>
+            <div class="layui-input-inline">
+                <select class="select" id="Region1" name="Region1" lay-filter="Region1" lay-verify="required" lay-search="">
+                    <option value=''>请选择</option>
+                </select>
+            </div>
+            <div class="layui-input-inline">
+                <select class="select" id="Region2" name="Region2" lay-filter="Region2" lay-search="">
+                    <option value=''>请选择</option>
+                </select>
+            </div>
+        </div>
+        <div class="layui-form-item" style="margin-left: 5%;">
+            <div class="layui-input-block">
+                <button class="layui-btn" lay-submit="" lay-filter="btnSave">立即提交</button>
+                <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+            </div>
+        </div>
+    </form>
+    <script src="../../js/jquery-2.1.1.min.js"></script>
+    <script src="../../layui/layui.all.js"></script>
+    <script src="../../wangEditor/wangEditor.js"></script>
+    <script type="text/javascript">
+        var form;
+        layui.use(['form'], function () {
+            form = layui.form;
+        });
+        $(function () {
+            $.ajax({
+                url: "../../Handler/Supplement.ashx?doType=GtobalClassification",
+                type: "post",
+                dataType: "json",
+                success: function (sr) {
+                    if (sr != "") {
+                        var html = "<option value=''>请选择</option>";
+                        for (var i = 0; i < sr.length; i++) {
+                            html += "<option value=" + sr[i].code + ">" + sr[i].name + "</option>";
+                        }
+                        $('#Classification1').html("");
+                        $('#Classification1').append(html);
+                        form.render('select');
+                    }
+                },
+                error: function (e) {
+                    console.log(e);
+                }
+            });
+            $.ajax({
+                url: "../../Handler/Supplement.ashx?doType=GtobalRegion",
+                type: "post",
+                dataType: "json",
+                success: function (sr) {
+                    if (sr != "") {
+                        var html = "<option value=''>请选择</option>";
+                        for (var i = 0; i < sr.length; i++) {
+                            html += "<option value=" + sr[i].code + ">" + sr[i].name + "</option>";
+                        }
+                        $('#Region1').html("");
+                        $('#Region1').append(html);
+                        form.render('select');
+                    }
+                },
+                error: function (e) {
+                    console.log(e);
+                }
+            });
+            $.ajax({
+                url: "../../Handler/Supplement.ashx?doType=SelectGtobal",
+                type: "post",
+                dataType: "json",
+                success: function (s) {
+                    if (s.result == true) {
+                        $("#corporation").val(s.msg[0].corporation);
+                        $("#modeId").val(s.msg[0].modeId);
+                        var select;
+                        if (s.msg[0].corporation != null && s.msg[0].corporation != '') {
+                            select = 'dd[lay-value=' + s.msg[0].corporation + ']';
+                            $('#corporation').siblings("div.layui-form-select").find('dl').find(select).click();
+                        }
+                        if (s.msg[0].modelId != null && s.msg[0].modelId != '') {
+                            select = 'dd[lay-value=' + s.msg[0].modeId + ']';
+                            $('#modeId').siblings("div.layui-form-select").find('dl').find(select).click();
+                        }
+                        //$("#Classification1").val(s.msg[0].firstIndustryId);
+                        //$("#Region1").val(s.msg[0].provinceId);
+                        if (s.msg[0].firstIndustryId != null && s.msg[0].firstIndustryId != '') {
+                            //select = 'dd[lay-value=' + cc + ']';
+                            //$('#Classification1').siblings("div.layui-form-select").find('dl').find(select).click();
+                            $.ajax({
+                                url: "../../Handler/Supplement.ashx?doType=GtobalClassification",
+                                type: "post",
+                                dataType: "json",
+                                success: function (sr) {
+                                    if (sr != "") {
+                                        var html = "<option value=''>请选择</option>";
+                                        for (var i = 0; i < sr.length; i++) {
+                                            if (s.msg[0].firstIndustryId == sr[i].code) {
+                                                html += "<option value=" + sr[i].code + " selected='true'>" + sr[i].name + "</option>";
+                                            }
+                                            else {
+                                                html += "<option value=" + sr[i].code + ">" + sr[i].name + "</option>";
+                                            }
+                                        }
+                                        $('#Classification1').html("");
+                                        $('#Classification1').append(html);
+                                        form.render('select');
+                                    }
+                                },
+                                error: function (e) {
+                                    console.log(e);
+                                }
+                            });
+                        }
+                        if (s.msg[0].provinceId != null && s.msg[0].provinceId != '') {
+                            //select = 'dd[lay-value=' + s.msg[0].provinceId + ']';
+                            //$('#Region1').siblings("div.layui-form-select").find('dl').find(select).click();
+                            $.ajax({
+                                url: "../../Handler/Supplement.ashx?doType=GtobalRegion",
+                                type: "post",
+                                dataType: "json",
+                                success: function (sr) {
+                                    if (sr != "") {
+                                        var html = "<option value=''>请选择</option>";
+                                        for (var i = 0; i < sr.length; i++) {
+                                            if (s.msg[0].provinceId == sr[i].code) {
+                                                html += "<option value=" + sr[i].code + " selected='true'>" + sr[i].name + "</option>";
+                                            }
+                                            else {
+                                                html += "<option value=" + sr[i].code + ">" + sr[i].name + "</option>";
+                                            }
+                                        }
+                                        $('#Region1').html("");
+                                        $('#Region1').append(html);
+                                        form.render('select');
+                                    }
+                                },
+                                error: function (e) {
+                                    console.log(e);
+                                }
+                            });
+                        }
+                        form.render("select");
+                        GetSelClassification1(s.msg[0].firstIndustryId, s.msg[0].secondIndustryId);
+                        GetSelClassification2(s.msg[0].secondIndustryId, s.msg[0].thirdIndustryId);
+                        debugger;
+                        GetSelClassification3(s.msg[0].thirdIndustryId, s.msg[0].fourthIndustryId);
+                        GetSelClassification4(s.msg[0].fourthIndustryId, s.msg[0].fifthIndustryId);
+                        GetSelRegion(s.msg[0].provinceId, s.msg[0].cityId);
+                    }
+                    else {
+                        layer.msg("");
+                    }
+                },
+                error: function (e) {
+                    console.log(e);
+                }
+            });
+        });
+    </script>
+    <script>
+        layui.use(['form', 'layedit', 'upload'], function () {
+            form.on('select(Classification1)', function (data) {
+                $('#Classification2').html("<option value=''>请选择</option>");
+                $('#Classification3').html("<option value=''>请选择</option>");
+                $('#Classification4').html("<option value=''>请选择</option>");
+                $('#Classification5').html("<option value=''>请选择</option>");
+                form.render('select');
+                $.ajax({
+                    url: "../../Handler/Supplement.ashx?doType=GtobalClassification",
+                    type: "post",
+                    data: { "id": data.value },
+                    dataType: "json",
+                    success: function (s) {
+                        if (s != "") {
+                            var html = "<option value=''>请选择</option>";
+                            for (var i = 0; i < s.length; i++) {
+                                html += "<option value=" + s[i].code + ">" + s[i].name + "</option>";
+                            }
+                            $('#Classification2').html("");
+                            $('#Classification2').append(html);
+                            form.render('select');
+                        }
+                    },
+                    error: function (e) {
+                        console.log(e);
+                    }
+                });
+            });
+            form.on('select(Classification2)', function (data) {
+                $('#Classification3').html("<option value=''>请选择</option>");
+                $('#Classification4').html("<option value=''>请选择</option>");
+                $('#Classification5').html("<option value=''>请选择</option>");
+                form.render('select');
+                $.ajax({
+                    url: "../../Handler/Supplement.ashx?doType=GtobalClassification",
+                    type: "post",
+                    data: { "id": data.value },
+                    dataType: "json",
+                    success: function (s) {
+                        if (s != "") {
+                            var html = "<option value=''>请选择</option>";
+                            for (var i = 0; i < s.length; i++) {
+                                html += "<option value=" + s[i].code + ">" + s[i].name + "</option>";
+                            }
+                            $('#Classification3').html("");
+                            $('#Classification3').append(html);
+                            form.render('select');
+                        }
+                    },
+                    error: function (e) {
+                        console.log(e);
+                    }
+                });
+            });
+            form.on('select(Classification3)', function (data) {
+                $('#Classification4').html("<option value=''>请选择</option>");
+                $('#Classification5').html("<option value=''>请选择</option>");
+                form.render('select');
+                $.ajax({
+                    url: "../../Handler/Supplement.ashx?doType=GtobalClassification",
+                    type: "post",
+                    data: { "id": data.value },
+                    dataType: "json",
+                    success: function (s) {
+                        if (s != "") {
+                            var html = "<option value=''>请选择</option>";
+                            for (var i = 0; i < s.length; i++) {
+                                html += "<option value=" + s[i].code + ">" + s[i].name + "</option>";
+                            }
+                            $('#Classification4').html("");
+                            $('#Classification4').append(html);
+                            form.render('select');
+                        }
+                    },
+                    error: function (e) {
+                        console.log(e);
+                    }
+                });
+            });
+            form.on('select(Classification4)', function (data) {
+                $('#Classification5').html("<option value=''>请选择</option>");
+                form.render('select');
+                $.ajax({
+                    url: "../../Handler/Supplement.ashx?doType=GtobalClassification",
+                    type: "post",
+                    data: { "id": data.value },
+                    dataType: "json",
+                    success: function (s) {
+                        if (s != "") {
+                            var html = "<option value=''>请选择</option>";
+                            for (var i = 0; i < s.length; i++) {
+                                html += "<option value=" + s[i].code + ">" + s[i].name + "</option>";
+                            }
+                            $('#Classification5').html("");
+                            $('#Classification5').append(html);
+                            form.render('select');
+                        }
+                    },
+                    error: function (e) {
+                        console.log(e);
+                    }
+                });
+            });
+            form.on('select(Region1)', function (data) {
+                $('#Region2').html("<option value=''>请选择</option>");
+                form.render('select');
+                $.ajax({
+                    url: "../../Handler/Supplement.ashx?doType=GtobalRegion",
+                    type: "post",
+                    data: { "id": data.value, "level": "2" },
+                    dataType: "json",
+                    success: function (s) {
+                        if (s != "") {
+                            var html = "<option value=''>请选择</option>";
+                            for (var i = 0; i < s.length; i++) {
+                                html += "<option value=" + s[i].code + ">" + s[i].name + "</option>";
+                            }
+                            $('#Region2').html("");
+                            $('#Region2').append(html);
+                            form.render('select');
+                        }
+                    },
+                    error: function (e) {
+                        console.log(e);
+                    }
+                });
+            });
+            form.on('submit(btnSave)', function (data) {
+                $.ajax({
+                    url: "../../Handler/Supplement.ashx?doType=UpdateGtobal",
+                    type: "post",
+                    dataType: "json",
+                    data: data.field,
+                    success: function (s) {
+                        if (s.result === true) {
+                            layer.alert(s.msg, { icon: 1 }, function (){
+                                var index = parent.layer.getFrameIndex(window.name);
+                                window.parent.location.reload();
+                                parent.layer.close(index);
+                            });
+                        } else {
+                            layer.alert(s.msg, { icon: 5 });
+                        }
+                    },
+                    error: function (e) {
+                        console.log(e);
+                    }
+                });
+                return false;
+            });
+            form.render();
+        });
+        function GetSelClassification1(id, value) {
+            $.ajax({
+                url: "../../Handler/Supplement.ashx?doType=GtobalClassification",
+                type: "post",
+                data: { "id": id },
+                dataType: "json",
+                success: function (s) {
+                    if (s != "") {
+                        var html = "<option value=''>请选择</option>";
+                        for (var i = 0; i < s.length; i++) {
+                            if (value == s[i].code) {
+                                html += "<option value=" + s[i].code + " selected='true'>" + s[i].name + "</option>";
+                            }
+                            else {
+                                html += "<option value=" + s[i].code + ">" + s[i].name + "</option>";
+                            }
+                        }
+                        $('#Classification2').html("");
+                        $('#Classification2').append(html);
+                        form.render('select');
+                    }
+                },
+                error: function (e) {
+                    console.log(e);
+                }
+            });
+        }
+        function GetSelClassification2(id, value) {
+            $.ajax({
+                url: "../../Handler/Supplement.ashx?doType=GtobalClassification",
+                type: "post",
+                data: { "id": id },
+                dataType: "json",
+                success: function (s) {
+                    if (s != "") {
+                        var html = "<option value=''>请选择</option>";
+                        for (var i = 0; i < s.length; i++) {
+                            if (value == s[i].code) {
+                                html += "<option value=" + s[i].code + " selected='true'>" + s[i].name + "</option>";
+                            }
+                            else {
+                                html += "<option value=" + s[i].code + ">" + s[i].name + "</option>";
+                            }
+                        }
+                        $('#Classification3').html("");
+                        $('#Classification3').append(html);
+                        form.render('select');
+                    }
+                },
+                error: function (e) {
+                    console.log(e);
+                }
+            });
+        }
+        function GetSelClassification3(id, value) {
+            debugger;
+            $.ajax({
+                url: "../../Handler/Supplement.ashx?doType=GtobalClassification",
+                type: "post",
+                data: { "id": id },
+                dataType: "json",
+                success: function (s) {
+                    debugger;
+                    if (s != "") {
+                        var html = "<option value=''>请选择</option>";
+                        for (var i = 0; i < s.length; i++) {
+                            if (value == s[i].code) {
+                                html += "<option value=" + s[i].code + " selected='true'>" + s[i].name + "</option>";
+                            }
+                            else {
+                                html += "<option value=" + s[i].code + ">" + s[i].name + "</option>";
+                            }
+                        }
+                        $('#Classification4').html("");
+                        $('#Classification4').append(html);
+                        form.render('select');
+                    }
+                },
+                error: function (e) {
+                    console.log(e);
+                }
+            });
+        }
+        function GetSelClassification4(id, value) {
+            $.ajax({
+                url: "../../Handler/Supplement.ashx?doType=GtobalClassification",
+                type: "post",
+                data: { "id": id },
+                dataType: "json",
+                success: function (s) {
+                    if (s != "") {
+                        var html = "<option value=''>请选择</option>";
+                        for (var i = 0; i < s.length; i++) {
+                            if (value == s[i].code) {
+                                html += "<option value=" + s[i].code + " selected='true'>" + s[i].name + "</option>";
+                            }
+                            else {
+                                html += "<option value=" + s[i].code + ">" + s[i].name + "</option>";
+                            }
+                        }
+                        $('#Classification5').html("");
+                        $('#Classification5').append(html);
+                        form.render('select');
+                    }
+                },
+                error: function (e) {
+                    console.log(e);
+                }
+            });
+        }
+        function GetSelRegion(id, value) {
+            $.ajax({
+                url: "../../Handler/Supplement.ashx?doType=GtobalRegion",
+                type: "post",
+                data: { "id": id, "level": "2" },
+                dataType: "json",
+                success: function (s) {
+                    if (s != "") {
+                        var html = "<option value=''>请选择</option>";
+                        for (var i = 0; i < s.length; i++) {
+                            if (value == s[i].code) {
+                                html += "<option value=" + s[i].code + " selected='true'>" + s[i].name + "</option>";
+                            }
+                            else {
+                                html += "<option value=" + s[i].code + ">" + s[i].name + "</option>";
+                            }
+                        }
+                        $('#Region2').append(html);
+                        form.render('select');
+                    }
+                },
+                error: function (e) {
+                    console.log(e);
+                }
+            });
+        }
+    </script>
+</body>
+
+</html>

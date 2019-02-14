@@ -1,0 +1,199 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>信息补充</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=yes">
+    <link rel="stylesheet" href="/layui/css/layui.css" media="all" />
+    <link rel="stylesheet" href="/css/user.css" media="all" />
+</head>
+<body class="childrenBody">
+    <form class="layui-form">
+        <div class="layui-form-item">
+            <label class="layui-form-label">执照号</label>
+            <div class="layui-input-block">
+                <input type="text" id="licenseCode" name="licenseCode" value="" placeholder="请填写公司执照号" lay-verify="required" class="layui-input">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">类型</label>
+            <div class="layui-input-block">
+                <input type="text" id="companyType" name="companyType" value="" placeholder="请输入公司类型" class="layui-input">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">法人</label>
+            <div class="layui-input-block">
+                <input type="text" id="legalEntity" name="legalEntity" placeholder="请输入法人" lay-verify="required" class="layui-input">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">注册资本</label>
+            <div class="layui-input-block">
+                <input type="text" id="regCapital" name="regCapital" placeholder="请输入注册资本" class="layui-input">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">成立日期</label>
+            <div class="layui-input-block">
+                <input type="text" id="regDate" name="regDate" value="" placeholder="请输入成立日期(2017年2月17日)" lay-verify="required" class="layui-input">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">营业期限</label>
+            <div class="layui-input-block">
+                <input type="text" id="validDate" name="validDate" class="layui-input" placeholder="请输入营业期限">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">经营范围</label>
+            <div class="layui-input-block">
+                <textarea id="businessScope" name="businessScope" placeholder="请输入内容" class="layui-textarea"></textarea>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">登记机关</label>
+            <div class="layui-input-block">
+                <input type="text" id="regAuthority" name="regAuthority" class="layui-input" placeholder="请输入登记机关">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">执照图片</label>
+            <div class="layui-input-block">
+                <div class="layui-input-inline">
+                    <img class="layui-upload-img" id="demo1" name="demo1" style="height: 600px;width: 300px;border: 1px;display: block">
+                    <p id="demoText"></p>
+                    <input type="button" class="layui-btn updload" id="UpLoadlogo" name="UpLoadlogo" value="上传图片"></input>
+                </div>
+            </div>
+        </div>
+        <input type="text" id="licensePath" name="licensePath" style="display: none" />
+        <div class="layui-form-item" style="margin-left: 5%;">
+            <div class="layui-input-block">
+                <button class="layui-btn" lay-submit="" lay-filter="btnSave">立即提交</button>
+                <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+            </div>
+        </div>
+    </form>
+    <script src="js/jquery-2.1.1.min.js"></script>
+    <script src="layui/layui.all.js"></script>
+    <script src="wangEditor/wangEditor.js"></script>
+    <script type="text/javascript">
+        var form, upload;
+        layui.use(['form', 'layedit', 'upload'], function () {
+            form = layui.form;
+            upload = layui.upload;
+        });
+        $(function () {
+            $.ajax({
+                url: "Handler/Supplement.ashx?doType=Select",
+                type: "post",
+                dataType: "json",
+                success: function (s) {
+                    if (s != "") {
+                        $("#licenseCode").val(s[0].licenseCode);
+                        $("#companyType").val(s[0].companyType);
+                        $("#legalEntity").val(s[0].legalEntity);
+                        $("#regCapital").val(s[0].regCapital);
+                        $("#regDate").val(s[0].regDate);
+                        $("#validDate").val(s[0].validDate);
+                        $("#businessScope").val(s[0].businessScope);
+                        $("#regAuthority").val(s[0].regAuthority);
+                        $("#validDate").val(s[0].validDate);
+                        $("#demo1").attr("src", s[0].licensePath);
+                        $("#licensePath").val(s[0].licensePath);
+                        //if(s[0].licenseCode!="") {
+                        //    $("input").attr('readonly', true);
+                        //    $("textarea").attr('readonly', true);
+                        //    $(':radio').attr('disabled', true);
+                        //    $(':checkbox').attr('disabled', true);
+                        //    $(':button').attr('disabled', true);
+                        //    $('a').removeAttr('onclick');
+                        //    $('select').attr('disabled', true);
+                        //}
+                        form.render();
+                    } else {
+                        layer.msg(s.msg);
+                    }
+                },
+                error: function (e) {
+                    console.log(e);
+                }
+            });
+        })
+    </script>
+    <script>
+        layui.use(['form', 'layedit', 'upload'], function () {
+            var form = layui.form;
+            var upload = layui.upload;
+            form.on('submit(btnSave)', function (data) {
+                $.ajax({
+                    url: "Handler/Supplement.ashx?doType=Update",
+                    type: "post",
+                    dataType: "json",
+                    data: data.field,
+                    success: function (s) {
+                        if (s.result === true) {
+                            layer.alert(s.msg, { icon: 1 }, function () {
+                                var index = parent.layer.getFrameIndex(window.name);
+                                window.parent.location.reload();
+                                parent.layer.close(index);
+                            });
+                        } else {
+                            layer.msg(s.msg, { icon: 5 });
+                        }
+                    },
+                    error: function (e) {
+                        console.log(e);
+                    }
+                });
+                return false;
+            });
+            form.render();
+        });
+    </script>
+
+
+    <script type="text/javascript">
+        layui.config({
+            base: "js/",
+            version: "v1.0"
+        });
+        layui.use(["jquery", "tobase64", "layer"], function () {
+            var tobase64 = layui.tobase64, $ = layui.jquery;
+            tobase64.render({
+                elem: ".updload", //上传文件的元素如  <div class=".upload">上传</div>
+                width: 680,//图片的最大宽度
+                quality: 1,//图片质量
+                success: function (result, type) {
+                    $.ajax({
+                        type: "POST",
+                        url: "Handler/UploadHandler.ashx?doType=UpdateImage",
+                        data: {
+                            images: result.clearBase64
+                        },
+                        dataType: "json",
+                        success: function (data) {
+                            $("#demo1").attr("src", data.data.src);
+                            $("#licensePath").val(data.data.src);
+                            layer.msg('上传成功', { time: 5000, icon: 6 });
+                        },
+                        complete: function () { },
+                        error: function () {
+                            layer.msg('上传失败', { time: 5000, icon: 5 });
+                        }
+                    });
+                },
+                errot: function (textStatus) {
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

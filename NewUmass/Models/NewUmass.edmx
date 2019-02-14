@@ -1,0 +1,1487 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="UdowsYunPublicModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Area_51sole">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="code" Type="int" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="parentCode" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Area_99inf">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="code" Type="int" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="parentCode" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Area_atobo">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="parentId" Type="int" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="code" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Area_b2b168">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="code" Type="int" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Area_gtobal">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="code" Type="int" Nullable="false" />
+          <Property Name="parentCode" Type="int" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Area_jqw">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="code" Type="int" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="parentCode" Type="int" Nullable="false" />
+          <Property Name="layer" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="B2B">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="domain" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="logoPath" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Company">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="userId" Type="int" Nullable="false" />
+          <Property Name="companyName" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="shortName" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="domain" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="companyAddress" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="mainProducts" Type="varchar(max)" Nullable="false" />
+          <Property Name="mainBrands" Type="varchar(max)" Nullable="false" />
+          <Property Name="keywords" Type="varchar(max)" Nullable="false" />
+          <Property Name="companyDesc" Type="varchar(max)" Nullable="false" />
+          <Property Name="companyPhone" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="companyEmail" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="companyFax" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="stateId" Type="int" Nullable="false" />
+          <Property Name="realName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="sex" Type="char" MaxLength="2" Nullable="false" />
+          <Property Name="post" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="mobile" Type="char" MaxLength="11" Nullable="false" />
+          <Property Name="phone" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="qq" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="email" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="address" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="zip" Type="char" MaxLength="6" Nullable="false" />
+          <Property Name="licenseCode" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="companyType" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="legalEntity" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="regCapital" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="regDate" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="validDate" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="businessScope" Type="varchar(max)" Nullable="false" />
+          <Property Name="regAuthority" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="licensePath" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Company_51sole">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="companyId" Type="int" Nullable="false" />
+          <Property Name="username" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="password" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="companyType" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="workingModel" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="bigIndustryId" Type="int" Nullable="false" />
+          <Property Name="midIndustryId" Type="int" Nullable="false" />
+          <Property Name="smallIndustryId" Type="int" Nullable="false" />
+          <Property Name="provinceId" Type="int" Nullable="false" />
+          <Property Name="cityId" Type="int" Nullable="false" />
+          <Property Name="countyId" Type="int" Nullable="false" />
+          <Property Name="url" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Company_99inf">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="companyId" Type="int" Nullable="false" />
+          <Property Name="userId" Type="int" Nullable="false" />
+          <Property Name="username" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="password" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="provinceId" Type="int" Nullable="false" />
+          <Property Name="cityId" Type="int" Nullable="false" />
+          <Property Name="coTypeId" Type="int" Nullable="false" />
+          <Property Name="coModeId" Type="int" Nullable="false" />
+          <Property Name="firstIndustryId" Type="int" Nullable="false" />
+          <Property Name="secondIndustryId" Type="int" Nullable="false" />
+          <Property Name="publicCount" Type="int" Nullable="false" />
+          <Property Name="loginState" Type="int" Nullable="false" />
+          <Property Name="url" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Company_atobo">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="companyId" Type="int" Nullable="false" />
+          <Property Name="username" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="password" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="cityId" Type="int" Nullable="false" />
+          <Property Name="addressId" Type="int" Nullable="false" />
+          <Property Name="licenseStateId" Type="int" Nullable="false" />
+          <Property Name="licenseStateDetail" Type="varchar(max)" />
+          <Property Name="dateStateId" Type="int" Nullable="false" />
+          <Property Name="dateStateDetail" Type="varchar(max)" />
+          <Property Name="provinceNo" Type="int" Nullable="false" />
+          <Property Name="cityNo" Type="int" Nullable="false" />
+          <Property Name="countyNo" Type="int" Nullable="false" />
+          <Property Name="firstIndustryId" Type="int" Nullable="false" />
+          <Property Name="secondIndustryId" Type="int" Nullable="false" />
+          <Property Name="thirdIndustryId" Type="int" Nullable="false" />
+          <Property Name="url" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Company_b2b168">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="companyNo" Type="int" Nullable="false" />
+          <Property Name="companyId" Type="int" Nullable="false" />
+          <Property Name="username" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="password" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="classId" Type="int" Nullable="false" />
+          <Property Name="regionId" Type="int" Nullable="false" />
+          <Property Name="modelId" Type="int" Nullable="false" />
+          <Property Name="peopleId" Type="int" Nullable="false" />
+          <Property Name="studyNumId" Type="int" Nullable="false" />
+          <Property Name="regFundsId" Type="int" Nullable="false" />
+          <Property Name="salesAmountId" Type="int" Nullable="false" />
+          <Property Name="exportAmountId" Type="int" Nullable="false" />
+          <Property Name="propertyId" Type="int" Nullable="false" />
+          <Property Name="provinceId" Type="int" Nullable="false" />
+          <Property Name="cityId" Type="int" Nullable="false" />
+          <Property Name="countyId" Type="int" Nullable="false" />
+          <Property Name="firstIndustryId" Type="int" Nullable="false" />
+          <Property Name="secondIndustryId" Type="int" Nullable="false" />
+          <Property Name="thirdIndustryId" Type="int" Nullable="false" />
+          <Property Name="licenseId" Type="int" Nullable="false" />
+          <Property Name="companyStateDetail" Type="varchar(max)" Nullable="false" />
+          <Property Name="licenseStateDetail" Type="varchar(max)" Nullable="false" />
+          <Property Name="url" Type="varchar" MaxLength="200" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Company_gtobal">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="companyNo" Type="int" Nullable="false" />
+          <Property Name="companyId" Type="int" Nullable="false" />
+          <Property Name="userId" Type="int" Nullable="false" />
+          <Property Name="username" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="password" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="corporation" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="modeId" Type="int" Nullable="false" />
+          <Property Name="industryId" Type="int" Nullable="false" />
+          <Property Name="industryIdPlace" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="areaId" Type="int" Nullable="false" />
+          <Property Name="firstIndustryId" Type="int" Nullable="false" />
+          <Property Name="secondIndustryId" Type="int" Nullable="false" />
+          <Property Name="thirdIndustryId" Type="int" Nullable="false" />
+          <Property Name="fourthIndustryId" Type="int" Nullable="false" />
+          <Property Name="fifthIndustryId" Type="int" Nullable="false" />
+          <Property Name="provinceId" Type="int" Nullable="false" />
+          <Property Name="cityId" Type="int" Nullable="false" />
+          <Property Name="url" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Company_jqw">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="companyId" Type="int" Nullable="false" />
+          <Property Name="ownerId" Type="int" Nullable="false" />
+          <Property Name="userId" Type="int" Nullable="false" />
+          <Property Name="username" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="password" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="firstIndustryId" Type="int" Nullable="false" />
+          <Property Name="secondIndustryId" Type="int" Nullable="false" />
+          <Property Name="thirdIndustryId" Type="int" Nullable="false" />
+          <Property Name="provinceId" Type="int" Nullable="false" />
+          <Property Name="cityId" Type="int" Nullable="false" />
+          <Property Name="countyId" Type="int" Nullable="false" />
+          <Property Name="companyTypeId" Type="int" Nullable="false" />
+          <Property Name="businessModelId" Type="int" Nullable="false" />
+          <Property Name="businessRoleId" Type="int" Nullable="false" />
+          <Property Name="url" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CompanyState">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Engines">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="domain" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="logoPath" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Industry_51sole">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="code" Type="int" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="parentCode" Type="int" Nullable="false" />
+          <Property Name="layer" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Industry_99inf">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="code" Type="int" Nullable="false" />
+          <Property Name="modId" Type="int" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="parentCode" Type="int" Nullable="false" />
+          <Property Name="layer" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Industry_atobo">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="parentIds" Type="varchar" MaxLength="100" />
+          <Property Name="name" Type="varchar" MaxLength="100" />
+          <Property Name="childIds" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="Industry_b2b168">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="code" Type="bigint" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Industry_gtobal">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="code" Type="int" Nullable="false" />
+          <Property Name="parentCode" Type="int" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Industry_jqw">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="code" Type="int" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="parentCode" Type="int" Nullable="false" />
+          <Property Name="layer" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Info">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="companyId" Type="int" Nullable="false" />
+          <Property Name="typeId" Type="int" Nullable="false" />
+          <Property Name="title" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="html" Type="varchar(max)" Nullable="false" />
+          <Property Name="imgPath" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="stateId" Type="int" Nullable="false" />
+          <Property Name="createTime" Type="int" Nullable="false" />
+          <Property Name="materialId" Type="int" />
+        </EntityType>
+        <EntityType Name="InfoState">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="InfoType">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="KeywordRanking">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="companyId" Type="int" Nullable="false" />
+          <Property Name="typeId" Type="int" Nullable="false" />
+          <Property Name="keyword" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="engineId" Type="int" Nullable="false" />
+          <Property Name="ranking" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="url" Type="varchar" MaxLength="500" Nullable="false" />
+        </EntityType>
+        <EntityType Name="KeywordType">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Material">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="companyId" Type="int" />
+          <Property Name="title" Type="varchar" MaxLength="50" />
+          <Property Name="&#xD;&#xA;creattime" Type="int" />
+          <Property Name="creatname" Type="varchar" MaxLength="50" />
+          <Property Name="IsDelete" Type="int" />
+          <Property Name="DeleteTime" Type="int" />
+          <Property Name="DeletePerson" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="MaterialInfo">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="M_id" Type="int" />
+          <Property Name="Title" Type="varchar" MaxLength="50" />
+          <Property Name="Value" Type="text" />
+          <Property Name="Start" Type="int" />
+          <Property Name="IsDelete" Type="int" />
+          <Property Name="DeleteTime" Type="int" />
+          <Property Name="DeletePerson" Type="varchar" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="PublishRule">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="companyId" Type="int" Nullable="false" />
+          <Property Name="intervalDay" Type="int" Nullable="false" />
+          <Property Name="publishCount" Type="int" Nullable="false" />
+          <Property Name="startDate" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PushInfoLog">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="infoId" Type="int" Nullable="false" />
+          <Property Name="companyId" Type="int" Nullable="false" />
+          <Property Name="b2bId" Type="int" Nullable="false" />
+          <Property Name="message" Type="varchar" MaxLength="500" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SuccessInfo">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="infoId" Type="int" Nullable="false" />
+          <Property Name="companyId" Type="int" Nullable="false" />
+          <Property Name="b2bId" Type="int" Nullable="false" />
+          <Property Name="url" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="createTime" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="roleId" Type="int" Nullable="false" />
+          <Property Name="username" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="password" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="realName" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="createTime" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserControl">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="userRoleId" Type="int" Nullable="false" />
+          <Property Name="parentId" Type="int" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="path" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="icon" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserRole">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <Function Name="Proc_GetAtoboIndustry" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+        </Function>
+        <EntityContainer Name="UdowsYunPublicModelStoreContainer">
+          <EntitySet Name="Area_51sole" EntityType="Self.Area_51sole" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Area_99inf" EntityType="Self.Area_99inf" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Area_atobo" EntityType="Self.Area_atobo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Area_b2b168" EntityType="Self.Area_b2b168" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Area_gtobal" EntityType="Self.Area_gtobal" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Area_jqw" EntityType="Self.Area_jqw" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="B2B" EntityType="Self.B2B" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Company" EntityType="Self.Company" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Company_51sole" EntityType="Self.Company_51sole" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Company_99inf" EntityType="Self.Company_99inf" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Company_atobo" EntityType="Self.Company_atobo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Company_b2b168" EntityType="Self.Company_b2b168" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Company_gtobal" EntityType="Self.Company_gtobal" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Company_jqw" EntityType="Self.Company_jqw" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CompanyState" EntityType="Self.CompanyState" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Engines" EntityType="Self.Engines" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Industry_51sole" EntityType="Self.Industry_51sole" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Industry_99inf" EntityType="Self.Industry_99inf" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Industry_atobo" EntityType="Self.Industry_atobo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Industry_b2b168" EntityType="Self.Industry_b2b168" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Industry_gtobal" EntityType="Self.Industry_gtobal" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Industry_jqw" EntityType="Self.Industry_jqw" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Info" EntityType="Self.Info" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="InfoState" EntityType="Self.InfoState" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="InfoType" EntityType="Self.InfoType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="KeywordRanking" EntityType="Self.KeywordRanking" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="KeywordType" EntityType="Self.KeywordType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Material" EntityType="Self.Material" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MaterialInfo" EntityType="Self.MaterialInfo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PublishRule" EntityType="Self.PublishRule" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PushInfoLog" EntityType="Self.PushInfoLog" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SuccessInfo" EntityType="Self.SuccessInfo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserControl" EntityType="Self.UserControl" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserRole" EntityType="Self.UserRole" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="UdowsYunPublicModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="UdowsYunPublicEntities" annotation:LazyLoadingEnabled="true">
+          <FunctionImport Name="Proc_GetAtoboIndustry" ReturnType="Collection(UdowsYunPublicModel.Proc_GetAtoboIndustry_Result)">
+          <Parameter Name="id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <EntitySet Name="Area_51sole" EntityType="UdowsYunPublicModel.Area_51sole" />
+          <EntitySet Name="Area_99inf" EntityType="UdowsYunPublicModel.Area_99inf" />
+          <EntitySet Name="Area_atobo" EntityType="UdowsYunPublicModel.Area_atobo" />
+          <EntitySet Name="Area_b2b168" EntityType="UdowsYunPublicModel.Area_b2b168" />
+          <EntitySet Name="Area_gtobal" EntityType="UdowsYunPublicModel.Area_gtobal" />
+          <EntitySet Name="Area_jqw" EntityType="UdowsYunPublicModel.Area_jqw" />
+          <EntitySet Name="B2B" EntityType="UdowsYunPublicModel.B2B" />
+          <EntitySet Name="Company" EntityType="UdowsYunPublicModel.Company" />
+          <EntitySet Name="Company_51sole" EntityType="UdowsYunPublicModel.Company_51sole" />
+          <EntitySet Name="Company_99inf" EntityType="UdowsYunPublicModel.Company_99inf" />
+          <EntitySet Name="Company_atobo" EntityType="UdowsYunPublicModel.Company_atobo" />
+          <EntitySet Name="Company_b2b168" EntityType="UdowsYunPublicModel.Company_b2b168" />
+          <EntitySet Name="Company_gtobal" EntityType="UdowsYunPublicModel.Company_gtobal" />
+          <EntitySet Name="Company_jqw" EntityType="UdowsYunPublicModel.Company_jqw" />
+          <EntitySet Name="CompanyState" EntityType="UdowsYunPublicModel.CompanyState" />
+          <EntitySet Name="Engines" EntityType="UdowsYunPublicModel.Engines" />
+          <EntitySet Name="Industry_51sole" EntityType="UdowsYunPublicModel.Industry_51sole" />
+          <EntitySet Name="Industry_99inf" EntityType="UdowsYunPublicModel.Industry_99inf" />
+          <EntitySet Name="Industry_atobo" EntityType="UdowsYunPublicModel.Industry_atobo" />
+          <EntitySet Name="Industry_b2b168" EntityType="UdowsYunPublicModel.Industry_b2b168" />
+          <EntitySet Name="Industry_gtobal" EntityType="UdowsYunPublicModel.Industry_gtobal" />
+          <EntitySet Name="Industry_jqw" EntityType="UdowsYunPublicModel.Industry_jqw" />
+          <EntitySet Name="Info" EntityType="UdowsYunPublicModel.Info" />
+          <EntitySet Name="InfoState" EntityType="UdowsYunPublicModel.InfoState" />
+          <EntitySet Name="InfoType" EntityType="UdowsYunPublicModel.InfoType" />
+          <EntitySet Name="KeywordRanking" EntityType="UdowsYunPublicModel.KeywordRanking" />
+          <EntitySet Name="KeywordType" EntityType="UdowsYunPublicModel.KeywordType" />
+          <EntitySet Name="Material" EntityType="UdowsYunPublicModel.Material" />
+          <EntitySet Name="MaterialInfo" EntityType="UdowsYunPublicModel.MaterialInfo" />
+          <EntitySet Name="SuccessInfo" EntityType="UdowsYunPublicModel.SuccessInfo" />
+          <EntitySet Name="User" EntityType="UdowsYunPublicModel.User" />
+          <EntitySet Name="UserControl" EntityType="UdowsYunPublicModel.UserControl" />
+          <EntitySet Name="UserRole" EntityType="UdowsYunPublicModel.UserRole" />
+          <EntitySet Name="PushInfoLog" EntityType="UdowsYunPublicModel.PushInfoLog" />
+          <EntitySet Name="PublishRule" EntityType="UdowsYunPublicModel.PublishRule" />
+          </EntityContainer>
+        <ComplexType Name="Proc_GetAtoboIndustry_Result">
+          <Property Type="Int32" Name="id" Nullable="true" />
+          <Property Type="Int32" Name="code" Nullable="true" />
+          <Property Type="String" Name="name" Nullable="true" MaxLength="100" />
+        </ComplexType>
+        <EntityType Name="Area_51sole">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="code" Type="Int32" Nullable="false" />
+          <Property Name="name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="parentCode" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Area_99inf">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="code" Type="Int32" Nullable="false" />
+          <Property Name="name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="parentCode" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Area_atobo">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="parentId" Type="Int32" Nullable="false" />
+          <Property Name="name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="code" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Area_b2b168">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="code" Type="Int32" Nullable="false" />
+          <Property Name="name" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Area_gtobal">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="code" Type="Int32" Nullable="false" />
+          <Property Name="parentCode" Type="Int32" Nullable="false" />
+          <Property Name="name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Area_jqw">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="code" Type="Int32" Nullable="false" />
+          <Property Name="name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="parentCode" Type="Int32" Nullable="false" />
+          <Property Name="layer" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="B2B">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="domain" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="logoPath" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Company">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="userId" Type="Int32" Nullable="false" />
+          <Property Name="companyName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="shortName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="domain" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="companyAddress" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="mainProducts" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="mainBrands" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="keywords" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="companyDesc" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="companyPhone" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="companyEmail" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="companyFax" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="stateId" Type="Int32" Nullable="false" />
+          <Property Name="realName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="sex" Type="String" Nullable="false" MaxLength="2" FixedLength="true" Unicode="false" />
+          <Property Name="post" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="mobile" Type="String" Nullable="false" MaxLength="11" FixedLength="true" Unicode="false" />
+          <Property Name="phone" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="qq" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="address" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="zip" Type="String" Nullable="false" MaxLength="6" FixedLength="true" Unicode="false" />
+          <Property Name="licenseCode" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="companyType" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="legalEntity" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="regCapital" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="regDate" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="validDate" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="businessScope" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="regAuthority" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="licensePath" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Company_51sole">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="companyId" Type="Int32" Nullable="false" />
+          <Property Name="username" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="companyType" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="workingModel" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="bigIndustryId" Type="Int32" Nullable="false" />
+          <Property Name="midIndustryId" Type="Int32" Nullable="false" />
+          <Property Name="smallIndustryId" Type="Int32" Nullable="false" />
+          <Property Name="provinceId" Type="Int32" Nullable="false" />
+          <Property Name="cityId" Type="Int32" Nullable="false" />
+          <Property Name="countyId" Type="Int32" Nullable="false" />
+          <Property Name="url" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Company_99inf">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="companyId" Type="Int32" Nullable="false" />
+          <Property Name="userId" Type="Int32" Nullable="false" />
+          <Property Name="username" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="provinceId" Type="Int32" Nullable="false" />
+          <Property Name="cityId" Type="Int32" Nullable="false" />
+          <Property Name="coTypeId" Type="Int32" Nullable="false" />
+          <Property Name="coModeId" Type="Int32" Nullable="false" />
+          <Property Name="firstIndustryId" Type="Int32" Nullable="false" />
+          <Property Name="secondIndustryId" Type="Int32" Nullable="false" />
+          <Property Name="publicCount" Type="Int32" Nullable="false" />
+          <Property Name="loginState" Type="Int32" Nullable="false" />
+          <Property Name="url" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Company_atobo">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="companyId" Type="Int32" Nullable="false" />
+          <Property Name="username" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="cityId" Type="Int32" Nullable="false" />
+          <Property Name="addressId" Type="Int32" Nullable="false" />
+          <Property Name="licenseStateId" Type="Int32" Nullable="false" />
+          <Property Name="licenseStateDetail" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="dateStateId" Type="Int32" Nullable="false" />
+          <Property Name="dateStateDetail" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="provinceNo" Type="Int32" Nullable="false" />
+          <Property Name="cityNo" Type="Int32" Nullable="false" />
+          <Property Name="countyNo" Type="Int32" Nullable="false" />
+          <Property Name="firstIndustryId" Type="Int32" Nullable="false" />
+          <Property Name="secondIndustryId" Type="Int32" Nullable="false" />
+          <Property Name="thirdIndustryId" Type="Int32" Nullable="false" />
+          <Property Name="url" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Company_b2b168">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="companyNo" Type="Int32" Nullable="false" />
+          <Property Name="companyId" Type="Int32" Nullable="false" />
+          <Property Name="username" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="classId" Type="Int32" Nullable="false" />
+          <Property Name="regionId" Type="Int32" Nullable="false" />
+          <Property Name="modelId" Type="Int32" Nullable="false" />
+          <Property Name="peopleId" Type="Int32" Nullable="false" />
+          <Property Name="studyNumId" Type="Int32" Nullable="false" />
+          <Property Name="regFundsId" Type="Int32" Nullable="false" />
+          <Property Name="salesAmountId" Type="Int32" Nullable="false" />
+          <Property Name="exportAmountId" Type="Int32" Nullable="false" />
+          <Property Name="propertyId" Type="Int32" Nullable="false" />
+          <Property Name="provinceId" Type="Int32" Nullable="false" />
+          <Property Name="cityId" Type="Int32" Nullable="false" />
+          <Property Name="countyId" Type="Int32" Nullable="false" />
+          <Property Name="firstIndustryId" Type="Int32" Nullable="false" />
+          <Property Name="secondIndustryId" Type="Int32" Nullable="false" />
+          <Property Name="thirdIndustryId" Type="Int32" Nullable="false" />
+          <Property Name="licenseId" Type="Int32" Nullable="false" />
+          <Property Name="companyStateDetail" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="licenseStateDetail" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="url" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Company_gtobal">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="companyNo" Type="Int32" Nullable="false" />
+          <Property Name="companyId" Type="Int32" Nullable="false" />
+          <Property Name="userId" Type="Int32" Nullable="false" />
+          <Property Name="username" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="corporation" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="modeId" Type="Int32" Nullable="false" />
+          <Property Name="industryId" Type="Int32" Nullable="false" />
+          <Property Name="industryIdPlace" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="areaId" Type="Int32" Nullable="false" />
+          <Property Name="firstIndustryId" Type="Int32" Nullable="false" />
+          <Property Name="secondIndustryId" Type="Int32" Nullable="false" />
+          <Property Name="thirdIndustryId" Type="Int32" Nullable="false" />
+          <Property Name="fourthIndustryId" Type="Int32" Nullable="false" />
+          <Property Name="provinceId" Type="Int32" Nullable="false" />
+          <Property Name="cityId" Type="Int32" Nullable="false" />
+          <Property Name="url" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="fifthIndustryId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Company_jqw">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="companyId" Type="Int32" Nullable="false" />
+          <Property Name="ownerId" Type="Int32" Nullable="false" />
+          <Property Name="userId" Type="Int32" Nullable="false" />
+          <Property Name="username" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="firstIndustryId" Type="Int32" Nullable="false" />
+          <Property Name="secondIndustryId" Type="Int32" Nullable="false" />
+          <Property Name="thirdIndustryId" Type="Int32" Nullable="false" />
+          <Property Name="provinceId" Type="Int32" Nullable="false" />
+          <Property Name="cityId" Type="Int32" Nullable="false" />
+          <Property Name="countyId" Type="Int32" Nullable="false" />
+          <Property Name="companyTypeId" Type="Int32" Nullable="false" />
+          <Property Name="businessModelId" Type="Int32" Nullable="false" />
+          <Property Name="businessRoleId" Type="Int32" Nullable="false" />
+          <Property Name="url" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="CompanyState">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Engines">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="domain" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="logoPath" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Industry_51sole">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="code" Type="Int32" Nullable="false" />
+          <Property Name="name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="parentCode" Type="Int32" Nullable="false" />
+          <Property Name="layer" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Industry_99inf">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="code" Type="Int32" Nullable="false" />
+          <Property Name="modId" Type="Int32" Nullable="false" />
+          <Property Name="name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="parentCode" Type="Int32" Nullable="false" />
+          <Property Name="layer" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Industry_atobo">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="parentIds" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="childIds" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Industry_b2b168">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="code" Type="Int32" Nullable="false" />
+          <Property Name="name" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Industry_gtobal">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="code" Type="Int32" Nullable="false" />
+          <Property Name="parentCode" Type="Int32" Nullable="false" />
+          <Property Name="name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Industry_jqw">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="code" Type="Int32" Nullable="false" />
+          <Property Name="name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="parentCode" Type="Int32" Nullable="false" />
+          <Property Name="layer" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Info">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="companyId" Type="Int32" Nullable="false" />
+          <Property Name="typeId" Type="Int32" Nullable="false" />
+          <Property Name="title" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="html" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="imgPath" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="stateId" Type="Int32" Nullable="false" />
+          <Property Name="createTime" Type="Int32" Nullable="false" />
+          <Property Name="materialId" Type="Int32" />
+        </EntityType>
+        <EntityType Name="InfoState">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="InfoType">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="KeywordRanking">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="companyId" Type="Int32" Nullable="false" />
+          <Property Name="typeId" Type="Int32" Nullable="false" />
+          <Property Name="keyword" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="engineId" Type="Int32" Nullable="false" />
+          <Property Name="ranking" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="url" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="KeywordType">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Material">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="companyId" Type="Int32" />
+          <Property Name="title" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="C__creattime" Type="Int32" />
+          <Property Name="creatname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IsDelete" Type="Int32" />
+          <Property Name="DeleteTime" Type="Int32" />
+          <Property Name="DeletePerson" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="MaterialInfo">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="M_id" Type="Int32" />
+          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Value" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Start" Type="Int32" />
+          <Property Name="IsDelete" Type="Int32" />
+          <Property Name="DeleteTime" Type="Int32" />
+          <Property Name="DeletePerson" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="SuccessInfo">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="infoId" Type="Int32" Nullable="false" />
+          <Property Name="companyId" Type="Int32" Nullable="false" />
+          <Property Name="b2bId" Type="Int32" Nullable="false" />
+          <Property Name="url" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="createTime" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="roleId" Type="Int32" Nullable="false" />
+          <Property Name="username" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="realName" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="createTime" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserControl">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="userRoleId" Type="Int32" Nullable="false" />
+          <Property Name="parentId" Type="Int32" Nullable="false" />
+          <Property Name="name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="path" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="icon" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="UserRole">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="PushInfoLog">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="b2bId" Type="Int32" Nullable="false" />
+          <Property Name="infoId" Type="Int32" Nullable="false" />
+          <Property Name="message" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="companyId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PublishRule">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="companyId" Type="Int32" Nullable="false" />
+          <Property Name="intervalDay" Type="Int32" Nullable="false" />
+          <Property Name="publishCount" Type="Int32" Nullable="false" />
+          <Property Name="startDate" Type="Int32" Nullable="false" />
+        </EntityType>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="UdowsYunPublicModelStoreContainer" CdmEntityContainer="UdowsYunPublicEntities">
+          <FunctionImportMapping FunctionImportName="Proc_GetAtoboIndustry" FunctionName="UdowsYunPublicModel.Store.Proc_GetAtoboIndustry">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="UdowsYunPublicModel.Proc_GetAtoboIndustry_Result">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="code" ColumnName="code" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="Area_51sole">
+            <EntityTypeMapping TypeName="UdowsYunPublicModel.Area_51sole">
+              <MappingFragment StoreEntitySet="Area_51sole">
+                <ScalarProperty Name="parentCode" ColumnName="parentCode" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="code" ColumnName="code" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Area_99inf">
+            <EntityTypeMapping TypeName="UdowsYunPublicModel.Area_99inf">
+              <MappingFragment StoreEntitySet="Area_99inf">
+                <ScalarProperty Name="parentCode" ColumnName="parentCode" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="code" ColumnName="code" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Area_atobo">
+            <EntityTypeMapping TypeName="UdowsYunPublicModel.Area_atobo">
+              <MappingFragment StoreEntitySet="Area_atobo">
+                <ScalarProperty Name="code" ColumnName="code" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="parentId" ColumnName="parentId" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Area_b2b168">
+            <EntityTypeMapping TypeName="UdowsYunPublicModel.Area_b2b168">
+              <MappingFragment StoreEntitySet="Area_b2b168">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="code" ColumnName="code" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Area_gtobal">
+            <EntityTypeMapping TypeName="UdowsYunPublicModel.Area_gtobal">
+              <MappingFragment StoreEntitySet="Area_gtobal">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="parentCode" ColumnName="parentCode" />
+                <ScalarProperty Name="code" ColumnName="code" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Area_jqw">
+            <EntityTypeMapping TypeName="UdowsYunPublicModel.Area_jqw">
+              <MappingFragment StoreEntitySet="Area_jqw">
+                <ScalarProperty Name="layer" ColumnName="layer" />
+                <ScalarProperty Name="parentCode" ColumnName="parentCode" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="code" ColumnName="code" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="B2B">
+            <EntityTypeMapping TypeName="UdowsYunPublicModel.B2B">
+              <MappingFragment StoreEntitySet="B2B">
+                <ScalarProperty Name="logoPath" ColumnName="logoPath" />
+                <ScalarProperty Name="domain" ColumnName="domain" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Company">
+            <EntityTypeMapping TypeName="UdowsYunPublicModel.Company">
+              <MappingFragment StoreEntitySet="Company">
+                <ScalarProperty Name="licensePath" ColumnName="licensePath" />
+                <ScalarProperty Name="regAuthority" ColumnName="regAuthority" />
+                <ScalarProperty Name="businessScope" ColumnName="businessScope" />
+                <ScalarProperty Name="validDate" ColumnName="validDate" />
+                <ScalarProperty Name="regDate" ColumnName="regDate" />
+                <ScalarProperty Name="regCapital" ColumnName="regCapital" />
+                <ScalarProperty Name="legalEntity" ColumnName="legalEntity" />
+                <ScalarProperty Name="companyType" ColumnName="companyType" />
+                <ScalarProperty Name="licenseCode" ColumnName="licenseCode" />
+                <ScalarProperty Name="zip" ColumnName="zip" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="qq" ColumnName="qq" />
+                <ScalarProperty Name="phone" ColumnName="phone" />
+                <ScalarProperty Name="mobile" ColumnName="mobile" />
+                <ScalarProperty Name="post" ColumnName="post" />
+                <ScalarProperty Name="sex" ColumnName="sex" />
+                <ScalarProperty Name="realName" ColumnName="realName" />
+                <ScalarProperty Name="stateId" ColumnName="stateId" />
+                <ScalarProperty Name="companyFax" ColumnName="companyFax" />
+                <ScalarProperty Name="companyEmail" ColumnName="companyEmail" />
+                <ScalarProperty Name="companyPhone" ColumnName="companyPhone" />
+                <ScalarProperty Name="companyDesc" ColumnName="companyDesc" />
+                <ScalarProperty Name="keywords" ColumnName="keywords" />
+                <ScalarProperty Name="mainBrands" ColumnName="mainBrands" />
+                <ScalarProperty Name="mainProducts" ColumnName="mainProducts" />
+                <ScalarProperty Name="companyAddress" ColumnName="companyAddress" />
+                <ScalarProperty Name="domain" ColumnName="domain" />
+                <ScalarProperty Name="shortName" ColumnName="shortName" />
+                <ScalarProperty Name="companyName" ColumnName="companyName" />
+                <ScalarProperty Name="userId" ColumnName="userId" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Company_51sole">
+            <EntityTypeMapping TypeName="UdowsYunPublicModel.Company_51sole">
+              <MappingFragment StoreEntitySet="Company_51sole">
+                <ScalarProperty Name="url" ColumnName="url" />
+                <ScalarProperty Name="countyId" ColumnName="countyId" />
+                <ScalarProperty Name="cityId" ColumnName="cityId" />
+                <ScalarProperty Name="provinceId" ColumnName="provinceId" />
+                <ScalarProperty Name="smallIndustryId" ColumnName="smallIndustryId" />
+                <ScalarProperty Name="midIndustryId" ColumnName="midIndustryId" />
+                <ScalarProperty Name="bigIndustryId" ColumnName="bigIndustryId" />
+                <ScalarProperty Name="workingModel" ColumnName="workingModel" />
+                <ScalarProperty Name="companyType" ColumnName="companyType" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="companyId" ColumnName="companyId" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Company_99inf">
+            <EntityTypeMapping TypeName="UdowsYunPublicModel.Company_99inf">
+              <MappingFragment StoreEntitySet="Company_99inf">
+                <ScalarProperty Name="url" ColumnName="url" />
+                <ScalarProperty Name="loginState" ColumnName="loginState" />
+                <ScalarProperty Name="publicCount" ColumnName="publicCount" />
+                <ScalarProperty Name="secondIndustryId" ColumnName="secondIndustryId" />
+                <ScalarProperty Name="firstIndustryId" ColumnName="firstIndustryId" />
+                <ScalarProperty Name="coModeId" ColumnName="coModeId" />
+                <ScalarProperty Name="coTypeId" ColumnName="coTypeId" />
+                <ScalarProperty Name="cityId" ColumnName="cityId" />
+                <ScalarProperty Name="provinceId" ColumnName="provinceId" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="userId" ColumnName="userId" />
+                <ScalarProperty Name="companyId" ColumnName="companyId" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Company_atobo">
+            <EntityTypeMapping TypeName="UdowsYunPublicModel.Company_atobo">
+              <MappingFragment StoreEntitySet="Company_atobo">
+                <ScalarProperty Name="url" ColumnName="url" />
+                <ScalarProperty Name="thirdIndustryId" ColumnName="thirdIndustryId" />
+                <ScalarProperty Name="secondIndustryId" ColumnName="secondIndustryId" />
+                <ScalarProperty Name="firstIndustryId" ColumnName="firstIndustryId" />
+                <ScalarProperty Name="countyNo" ColumnName="countyNo" />
+                <ScalarProperty Name="cityNo" ColumnName="cityNo" />
+                <ScalarProperty Name="provinceNo" ColumnName="provinceNo" />
+                <ScalarProperty Name="dateStateDetail" ColumnName="dateStateDetail" />
+                <ScalarProperty Name="dateStateId" ColumnName="dateStateId" />
+                <ScalarProperty Name="licenseStateDetail" ColumnName="licenseStateDetail" />
+                <ScalarProperty Name="licenseStateId" ColumnName="licenseStateId" />
+                <ScalarProperty Name="addressId" ColumnName="addressId" />
+                <ScalarProperty Name="cityId" ColumnName="cityId" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="companyId" ColumnName="companyId" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Company_b2b168">
+            <EntityTypeMapping TypeName="UdowsYunPublicModel.Company_b2b168">
+              <MappingFragment StoreEntitySet="Company_b2b168">
+                <ScalarProperty Name="url" ColumnName="url" />
+                <ScalarProperty Name="licenseStateDetail" ColumnName="licenseStateDetail" />
+                <ScalarProperty Name="companyStateDetail" ColumnName="companyStateDetail" />
+                <ScalarProperty Name="licenseId" ColumnName="licenseId" />
+                <ScalarProperty Name="thirdIndustryId" ColumnName="thirdIndustryId" />
+                <ScalarProperty Name="secondIndustryId" ColumnName="secondIndustryId" />
+                <ScalarProperty Name="firstIndustryId" ColumnName="firstIndustryId" />
+                <ScalarProperty Name="countyId" ColumnName="countyId" />
+                <ScalarProperty Name="cityId" ColumnName="cityId" />
+                <ScalarProperty Name="provinceId" ColumnName="provinceId" />
+                <ScalarProperty Name="propertyId" ColumnName="propertyId" />
+                <ScalarProperty Name="exportAmountId" ColumnName="exportAmountId" />
+                <ScalarProperty Name="salesAmountId" ColumnName="salesAmountId" />
+                <ScalarProperty Name="regFundsId" ColumnName="regFundsId" />
+                <ScalarProperty Name="studyNumId" ColumnName="studyNumId" />
+                <ScalarProperty Name="peopleId" ColumnName="peopleId" />
+                <ScalarProperty Name="modelId" ColumnName="modelId" />
+                <ScalarProperty Name="regionId" ColumnName="regionId" />
+                <ScalarProperty Name="classId" ColumnName="classId" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="companyId" ColumnName="companyId" />
+                <ScalarProperty Name="companyNo" ColumnName="companyNo" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Company_gtobal">
+            <EntityTypeMapping TypeName="UdowsYunPublicModel.Company_gtobal">
+              <MappingFragment StoreEntitySet="Company_gtobal">
+                <ScalarProperty Name="fifthIndustryId" ColumnName="fifthIndustryId" />
+                <ScalarProperty Name="url" ColumnName="url" />
+                <ScalarProperty Name="cityId" ColumnName="cityId" />
+                <ScalarProperty Name="provinceId" ColumnName="provinceId" />
+                <ScalarProperty Name="fourthIndustryId" ColumnName="fourthIndustryId" />
+                <ScalarProperty Name="thirdIndustryId" ColumnName="thirdIndustryId" />
+                <ScalarProperty Name="secondIndustryId" ColumnName="secondIndustryId" />
+                <ScalarProperty Name="firstIndustryId" ColumnName="firstIndustryId" />
+                <ScalarProperty Name="areaId" ColumnName="areaId" />
+                <ScalarProperty Name="industryIdPlace" ColumnName="industryIdPlace" />
+                <ScalarProperty Name="industryId" ColumnName="industryId" />
+                <ScalarProperty Name="modeId" ColumnName="modeId" />
+                <ScalarProperty Name="corporation" ColumnName="corporation" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="userId" ColumnName="userId" />
+                <ScalarProperty Name="companyId" ColumnName="companyId" />
+                <ScalarProperty Name="companyNo" ColumnName="companyNo" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Company_jqw">
+            <EntityTypeMapping TypeName="UdowsYunPublicModel.Company_jqw">
+              <MappingFragment StoreEntitySet="Company_jqw">
+                <ScalarProperty Name="url" ColumnName="url" />
+                <ScalarProperty Name="businessRoleId" ColumnName="businessRoleId" />
+                <ScalarProperty Name="businessModelId" ColumnName="businessModelId" />
+                <ScalarProperty Name="companyTypeId" ColumnName="companyTypeId" />
+                <ScalarProperty Name="countyId" ColumnName="countyId" />
+                <ScalarProperty Name="cityId" ColumnName="cityId" />
+                <ScalarProperty Name="provinceId" ColumnName="provinceId" />
+                <ScalarProperty Name="thirdIndustryId" ColumnName="thirdIndustryId" />
+                <ScalarProperty Name="secondIndustryId" ColumnName="secondIndustryId" />
+                <ScalarProperty Name="firstIndustryId" ColumnName="firstIndustryId" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="userId" ColumnName="userId" />
+                <ScalarProperty Name="ownerId" ColumnName="ownerId" />
+                <ScalarProperty Name="companyId" ColumnName="companyId" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CompanyState">
+            <EntityTypeMapping TypeName="UdowsYunPublicModel.CompanyState">
+              <MappingFragment StoreEntitySet="CompanyState">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Engines">
+            <EntityTypeMapping TypeName="UdowsYunPublicModel.Engines">
+              <MappingFragment StoreEntitySet="Engines">
+                <ScalarProperty Name="logoPath" ColumnName="logoPath" />
+                <ScalarProperty Name="domain" ColumnName="domain" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Industry_51sole">
+            <EntityTypeMapping TypeName="UdowsYunPublicModel.Industry_51sole">
+              <MappingFragment StoreEntitySet="Industry_51sole">
+                <ScalarProperty Name="layer" ColumnName="layer" />
+                <ScalarProperty Name="parentCode" ColumnName="parentCode" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="code" ColumnName="code" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Industry_99inf">
+            <EntityTypeMapping TypeName="UdowsYunPublicModel.Industry_99inf">
+              <MappingFragment StoreEntitySet="Industry_99inf">
+                <ScalarProperty Name="layer" ColumnName="layer" />
+                <ScalarProperty Name="parentCode" ColumnName="parentCode" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="modId" ColumnName="modId" />
+                <ScalarProperty Name="code" ColumnName="code" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Industry_atobo">
+            <EntityTypeMapping TypeName="UdowsYunPublicModel.Industry_atobo">
+              <MappingFragment StoreEntitySet="Industry_atobo">
+                <ScalarProperty Name="childIds" ColumnName="childIds" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="parentIds" ColumnName="parentIds" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Industry_b2b168">
+            <EntityTypeMapping TypeName="UdowsYunPublicModel.Industry_b2b168">
+              <MappingFragment StoreEntitySet="Industry_b2b168">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="code" ColumnName="code" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Industry_gtobal">
+            <EntityTypeMapping TypeName="UdowsYunPublicModel.Industry_gtobal">
+              <MappingFragment StoreEntitySet="Industry_gtobal">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="parentCode" ColumnName="parentCode" />
+                <ScalarProperty Name="code" ColumnName="code" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Industry_jqw">
+            <EntityTypeMapping TypeName="UdowsYunPublicModel.Industry_jqw">
+              <MappingFragment StoreEntitySet="Industry_jqw">
+                <ScalarProperty Name="layer" ColumnName="layer" />
+                <ScalarProperty Name="parentCode" ColumnName="parentCode" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="code" ColumnName="code" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Info">
+            <EntityTypeMapping TypeName="UdowsYunPublicModel.Info">
+              <MappingFragment StoreEntitySet="Info">
+                <ScalarProperty Name="materialId" ColumnName="materialId" />
+                <ScalarProperty Name="createTime" ColumnName="createTime" />
+                <ScalarProperty Name="stateId" ColumnName="stateId" />
+                <ScalarProperty Name="imgPath" ColumnName="imgPath" />
+                <ScalarProperty Name="html" ColumnName="html" />
+                <ScalarProperty Name="title" ColumnName="title" />
+                <ScalarProperty Name="typeId" ColumnName="typeId" />
+                <ScalarProperty Name="companyId" ColumnName="companyId" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InfoState">
+            <EntityTypeMapping TypeName="UdowsYunPublicModel.InfoState">
+              <MappingFragment StoreEntitySet="InfoState">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InfoType">
+            <EntityTypeMapping TypeName="UdowsYunPublicModel.InfoType">
+              <MappingFragment StoreEntitySet="InfoType">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="KeywordRanking">
+            <EntityTypeMapping TypeName="UdowsYunPublicModel.KeywordRanking">
+              <MappingFragment StoreEntitySet="KeywordRanking">
+                <ScalarProperty Name="url" ColumnName="url" />
+                <ScalarProperty Name="ranking" ColumnName="ranking" />
+                <ScalarProperty Name="engineId" ColumnName="engineId" />
+                <ScalarProperty Name="keyword" ColumnName="keyword" />
+                <ScalarProperty Name="typeId" ColumnName="typeId" />
+                <ScalarProperty Name="companyId" ColumnName="companyId" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="KeywordType">
+            <EntityTypeMapping TypeName="UdowsYunPublicModel.KeywordType">
+              <MappingFragment StoreEntitySet="KeywordType">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Material">
+            <EntityTypeMapping TypeName="UdowsYunPublicModel.Material">
+              <MappingFragment StoreEntitySet="Material">
+                <ScalarProperty Name="DeletePerson" ColumnName="DeletePerson" />
+                <ScalarProperty Name="DeleteTime" ColumnName="DeleteTime" />
+                <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+                <ScalarProperty Name="creatname" ColumnName="creatname" />
+                <ScalarProperty Name="C__creattime" ColumnName="&#xD;&#xA;creattime" />
+                <ScalarProperty Name="title" ColumnName="title" />
+                <ScalarProperty Name="companyId" ColumnName="companyId" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MaterialInfo">
+            <EntityTypeMapping TypeName="UdowsYunPublicModel.MaterialInfo">
+              <MappingFragment StoreEntitySet="MaterialInfo">
+                <ScalarProperty Name="DeletePerson" ColumnName="DeletePerson" />
+                <ScalarProperty Name="DeleteTime" ColumnName="DeleteTime" />
+                <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+                <ScalarProperty Name="Start" ColumnName="Start" />
+                <ScalarProperty Name="Value" ColumnName="Value" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="M_id" ColumnName="M_id" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SuccessInfo">
+            <EntityTypeMapping TypeName="UdowsYunPublicModel.SuccessInfo">
+              <MappingFragment StoreEntitySet="SuccessInfo">
+                <ScalarProperty Name="createTime" ColumnName="createTime" />
+                <ScalarProperty Name="url" ColumnName="url" />
+                <ScalarProperty Name="b2bId" ColumnName="b2bId" />
+                <ScalarProperty Name="companyId" ColumnName="companyId" />
+                <ScalarProperty Name="infoId" ColumnName="infoId" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="User">
+            <EntityTypeMapping TypeName="UdowsYunPublicModel.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="createTime" ColumnName="createTime" />
+                <ScalarProperty Name="realName" ColumnName="realName" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="roleId" ColumnName="roleId" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserControl">
+            <EntityTypeMapping TypeName="UdowsYunPublicModel.UserControl">
+              <MappingFragment StoreEntitySet="UserControl">
+                <ScalarProperty Name="icon" ColumnName="icon" />
+                <ScalarProperty Name="path" ColumnName="path" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="parentId" ColumnName="parentId" />
+                <ScalarProperty Name="userRoleId" ColumnName="userRoleId" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserRole">
+            <EntityTypeMapping TypeName="UdowsYunPublicModel.UserRole">
+              <MappingFragment StoreEntitySet="UserRole">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PushInfoLog">
+            <EntityTypeMapping TypeName="UdowsYunPublicModel.PushInfoLog">
+              <MappingFragment StoreEntitySet="PushInfoLog">
+                <ScalarProperty Name="companyId" ColumnName="companyId" />
+                <ScalarProperty Name="message" ColumnName="message" />
+                <ScalarProperty Name="infoId" ColumnName="infoId" />
+                <ScalarProperty Name="b2bId" ColumnName="b2bId" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PublishRule">
+            <EntityTypeMapping TypeName="UdowsYunPublicModel.PublishRule">
+              <MappingFragment StoreEntitySet="PublishRule">
+                <ScalarProperty Name="startDate" ColumnName="startDate" />
+                <ScalarProperty Name="publishCount" ColumnName="publishCount" />
+                <ScalarProperty Name="intervalDay" ColumnName="intervalDay" />
+                <ScalarProperty Name="companyId" ColumnName="companyId" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="无" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

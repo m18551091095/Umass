@@ -1,0 +1,420 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>公司基本信息</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=yes">
+    <link rel="stylesheet" href="../../layui/css/layui.css" media="all" />
+    <link rel="stylesheet" href="../../css/user.css" media="all" />
+</head>
+<body class="childrenBody">
+    <form class="layui-form">
+        <div class="layui-form-item">
+            <label class="layui-form-label">分类</label>
+            <div class="layui-input-inline">
+                <select class="select" id="Classification1" name="Classification1" lay-filter="Classification1" lay-verify="required" lay-search="">
+                    <option value=''>请选择</option>
+                </select>
+            </div>
+            <div class="layui-input-inline">
+                <select class="select" id="Classification2" name="Classification2" lay-filter="Classification2" lay-verify="required" lay-search="">
+                    <option value=''>请选择</option>
+                </select>
+            </div>
+            <div class="layui-input-inline">
+                <select class="select" id="Classification3" name="Classification3"  lay-search="">
+                    <option value=''>请选择</option>
+                </select>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">区域</label>
+            <div class="layui-input-inline">
+                <select class="select" id="Region1" name="Region1" lay-filter="Region1" lay-verify="required" lay-search="">
+                    <option value=''>请选择</option>
+                </select>
+            </div>
+            <div class="layui-input-inline">
+                <select class="select" id="Region2" name="Region2" lay-filter="Region2" lay-verify="required" lay-search="">
+                    <option value=''>请选择</option>
+                </select>
+            </div>
+            <div class="layui-input-inline">
+                <select class="select" id="Region3" name="Region3" lay-search="">
+                    <option value=''>请选择</option>
+                </select>
+            </div>
+        </div>
+        <div class="layui-form-item" style="margin-left: 5%;">
+            <div class="layui-input-block">
+                <button class="layui-btn" lay-submit="" lay-filter="btnSave">立即提交</button>
+                <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+            </div>
+        </div>
+    </form>
+    <script src="../../js/jquery-2.1.1.min.js"></script>
+    <script src="../../layui/layui.all.js"></script>
+    <script src="../../wangEditor/wangEditor.js"></script>
+    <script type="text/javascript">
+        var form;
+        layui.use(['form'], function () {
+            form = layui.form;
+        });
+        $(function () {
+            $.ajax({
+                url: "../../Handler/Supplement.ashx?doType=AtoboClassification",
+                type: "post",
+                dataType: "json",
+                success: function (sr) {
+                    if (sr != "") {
+                        var html = "<option value=''>请选择</option>";
+                        for (var i = 0; i < sr.length; i++) {
+                            html += "<option value=" + sr[i].code + ">" + sr[i].name + "</option>";
+                        }
+                        $('#Classification1').html("");
+                        $('#Classification1').append(html);
+                        form.render('select');
+                    }
+                },
+                error: function (e) {
+                    console.log(e);
+                }
+            });
+            $.ajax({
+                url: "../../Handler/Supplement.ashx?doType=AtoboRegion",
+                type: "post",
+                dataType: "json",
+                success: function (sr) {
+                    if (sr != "") {
+                        var html = "<option value=''>请选择</option>";
+                        for (var i = 0; i < sr.length; i++) {
+                            html += "<option value=" + sr[i].code + ">" + sr[i].name + "</option>";
+                        }
+                        $('#Region1').html("");
+                        $('#Region1').append(html);
+                        form.render('select');
+                    }
+                },
+                error: function (e) {
+                    console.log(e);
+                }
+            });
+            $.ajax({
+                url: "../../Handler/Supplement.ashx?doType=SelectAtobo",
+                type: "post",
+                dataType: "json",
+                success: function (s) {
+                    var select;
+                    if (s.result == true) {
+                        if (s.msg[0].firstIndustryId != null && s.msg[0].firstIndustryId != '') {
+                            //$("#Classification1").val(s.msg[0].firstIndustryId);
+                            //select = 'dd[lay-value=' + s.msg[0].firstIndustryId + ']';
+                            //$('#Classification1').siblings("div.layui-form-select").find('dl').find(select).click();
+                            $.ajax({
+                                url: "../../Handler/Supplement.ashx?doType=AtoboClassification",
+                                type: "post",
+                                dataType: "json",
+                                success: function (sr) {
+                                    if (sr != "") {
+                                        var html = "<option value=''>请选择</option>";
+                                        for (var i = 0; i < sr.length; i++) {
+                                            if (s.msg[0].firstIndustryId == sr[i].code) {
+                                                html += "<option value=" + sr[i].code + " selected='true' >" + sr[i].name + "</option>";
+                                            }
+                                            else {
+                                                html += "<option value=" + sr[i].code + ">" + sr[i].name + "</option>";
+                                            }
+                                        }
+                                        $('#Classification1').html("");
+                                        $('#Classification1').append(html);
+                                        form.render('select');
+                                    }
+                                },
+                                error: function (e) {
+                                    console.log(e);
+                                }
+                            });
+                        }
+                        if (s.msg[0].provinceNo != null && s.msg[0].provinceNo != '') {
+                            //$("#Region1").val(s.msg[0].provinceNo);
+                            //select = 'dd[lay-value=' + s.msg[0].provinceNo + ']';
+                            //$('#Region1').siblings("div.layui-form-select").find('dl').find(select).click();
+                            $.ajax({
+                                url: "../../Handler/Supplement.ashx?doType=AtoboRegion",
+                                type: "post",
+                                dataType: "json",
+                                success: function (sr) {
+                                    if (sr != "") {
+                                        var html = "<option value=''>请选择</option>";
+                                        for (var i = 0; i < sr.length; i++) {
+                                            if (s.msg[0].provinceNo == sr[i].code) {
+                                                html += "<option value=" + sr[i].code + " selected='true' >" + sr[i].name + "</option>";
+                                            }
+                                            else {
+                                                html += "<option value=" + sr[i].code + ">" + sr[i].name + "</option>";
+                                            }
+                                        }
+                                        $('#Region1').html("");
+                                        $('#Region1').append(html);
+                                        form.render('select');
+                                    }
+                                },
+                                error: function (e) {
+                                    console.log(e);
+                                }
+                            });
+                        }
+                        form.render("select");
+                        GetSelAtoboClassification1(s.msg[0].firstIndustryId, s.msg[0].secondIndustryId);
+                        GetSelAtoboClassification2(s.msg[0].secondIndustryId, s.msg[0].thirdIndustryId);
+                        GetSelAtoboRegion1(s.msg[0].provinceNo, s.msg[0].cityNo);
+                        GetSelAtoboRegion2(s.msg[0].cityNo, s.msg[0].countyNo);
+                    }
+                    else {
+                        layer.msg("");
+                    }
+                },
+                error: function (e) {
+                    console.log(e);
+                }
+            });
+        });
+    </script>
+    <script>
+        layui.use(['form', 'layedit', 'upload'], function () {
+            form.on('select(Classification1)', function (data) {
+                $('#Classification2').html("<option value=''>请选择</option>");
+                $('#Classification3').html("<option value=''>请选择</option>");
+                form.render('select');
+                $.ajax({
+                    url: "../../Handler/Supplement.ashx?doType=AtoboClassification",
+                    type: "post",
+                    data: { "id": data.value },
+                    dataType: "json",
+                    success: function (s) {
+                        if (s != "") {
+                            var html = "<option value=''>请选择</option>";
+                            for (var i = 0; i < s.length; i++) {
+                                html += "<option value=" + s[i].code + ">" + s[i].name + "</option>";
+                            }
+                            $('#Classification2').html("");
+                            $('#Classification2').append(html);
+                            form.render('select');
+                        }
+                    },
+                    error: function (e) {
+                        console.log(e);
+                    }
+                });
+            });
+            form.on('select(Classification2)', function (data) {
+                $('#Classification3').html("<option value=''>请选择</option>");
+                form.render('select');
+                $.ajax({
+                    url: "../../Handler/Supplement.ashx?doType=AtoboClassification",
+                    type: "post",
+                    data: { "id": data.value },
+                    dataType: "json",
+                    success: function (s) {
+                        if (s != "") {
+                            var html = "<option value=''>请选择</option>";
+                            for (var i = 0; i < s.length; i++) {
+                                html += "<option value=" + s[i].code + ">" + s[i].name + "</option>";
+                            }
+                            $('#Classification3').html("");
+                            $('#Classification3').append(html);
+                            form.render('select');
+                        }
+                    },
+                    error: function (e) {
+                        console.log(e);
+                    }
+                });
+            });
+            form.on('select(Region1)', function (data) {
+                $('#Region2').html("<option value=''>请选择</option>");
+                $('#Region3').html("<option value=''>请选择</option>");
+                form.render('select');
+                $.ajax({
+                    url: "../../Handler/Supplement.ashx?doType=AtoboRegion",
+                    type: "post",
+                    data: { "id": data.value, "level": "2" },
+                    dataType: "json",
+                    success: function (s) {
+                        if (s != "") {
+                            var html = "<option value=''>请选择</option>";
+                            for (var i = 0; i < s.length; i++) {
+                                html += "<option value=" + s[i].code + ">" + s[i].name + "</option>";
+                            }
+                            $('#Region2').html("");
+                            $('#Region2').append(html);
+                            form.render('select');
+                        }
+                    },
+                    error: function (e) {
+                        console.log(e);
+                    }
+                });
+            });
+            form.on('select(Region2)', function (data) {
+                $('#Region3').html("<option value=''>请选择</option>");
+                form.render('select');
+                $.ajax({
+                    url: "../../Handler/Supplement.ashx?doType=AtoboRegion",
+                    type: "post",
+                    data: { "id": data.value, "level": "3" },
+                    dataType: "json",
+                    success: function (s) {
+                        if (s != "") {
+                            var html = "<option value=''>请选择</option>";
+                            for (var i = 0; i < s.length; i++) {
+                                html += "<option value=" + s[i].code + ">" + s[i].name + "</option>";
+                            }
+                            $('#Region3').html("");
+                            $('#Region3').append(html);
+                            form.render('select');
+                        }
+                    },
+                    error: function (e) {
+                        console.log(e);
+                    }
+                });
+            });
+            form.on('submit(btnSave)', function (data) {
+                $.ajax({
+                    url: "../../Handler/Supplement.ashx?doType=UpdateAtobo",
+                    type: "post",
+                    dataType: "json",
+                    data: data.field,
+                    success: function (s) {
+                        if (s.result === true) {
+                            layer.alert(s.msg, { icon: 1 }, function () {
+                                var index = parent.layer.getFrameIndex(window.name);
+                                window.parent.location.reload();
+                                parent.layer.close(index);
+                            });
+                        } else {
+                            layer.alert(s.msg, { icon: 5 });
+                        }
+                    },
+                    error: function (e) {
+                        console.log(e);
+                    }
+                });
+                return false;
+            });
+            form.render();
+        });
+        function GetSelAtoboClassification1(id, value) {
+            $.ajax({
+                url: "../../Handler/Supplement.ashx?doType=AtoboClassification",
+                type: "post",
+                data: { "id": id },
+                dataType: "json",
+                success: function (s) {
+                    if (s != "") {
+                        var html = "<option value=''>请选择</option>";
+                        for (var i = 0; i < s.length; i++) {
+                            if (value == s[i].code) {
+                                html += "<option value=" + s[i].code + " selected='true' >" + s[i].name + "</option>";
+                            }
+                            else {
+                                html += "<option value=" + s[i].code + ">" + s[i].name + "</option>";
+                            }
+                        }
+                        $('#Classification2').append(html);
+                        form.render('select');
+                    }
+                },
+                error: function (e) {
+                    console.log(e);
+                }
+            });
+        }
+        function GetSelAtoboClassification2(id, value) {
+            $.ajax({
+                url: "../../Handler/Supplement.ashx?doType=AtoboClassification",
+                type: "post",
+                data: { "id": id },
+                dataType: "json",
+                success: function (s) {
+                    if (s != "") {
+                        var html = "<option value=''>请选择</option>";
+                        for (var i = 0; i < s.length; i++) {
+                            if (value == s[i].code) {
+                                html += "<option value=" + s[i].code + " selected='true' >" + s[i].name + "</option>";
+                            }
+                            else {
+                                html += "<option value=" + s[i].code + ">" + s[i].name + "</option>";
+                            }
+                        }
+                        $('#Classification3').append(html);
+                        form.render('select');
+                    }
+                },
+                error: function (e) {
+                    console.log(e);
+                }
+            });
+        }
+        function GetSelAtoboRegion1(id, value) {
+            $.ajax({
+                url: "../../Handler/Supplement.ashx?doType=AtoboRegion",
+                type: "post",
+                data: { "id": id, "level": "2" },
+                dataType: "json",
+                success: function (s) {
+                    if (s != "") {
+                        var html = "<option value=''>请选择</option>";
+                        for (var i = 0; i < s.length; i++) {
+                            if (value === s[i].code) {
+                                html += "<option value=" + s[i].code + " selected='true'>" + s[i].name + "</option>";
+                            }
+                            else {
+                                html += "<option value=" + s[i].code + ">" + s[i].name + "</option>";
+                            }
+                        }
+                        $('#Region2').append(html);
+                        form.render('select');
+                    }
+                },
+                error: function (e) {
+                    console.log(e);
+                }
+            });
+        }
+        function GetSelAtoboRegion2(id, value) {
+            $.ajax({
+                url: "../../Handler/Supplement.ashx?doType=AtoboRegion",
+                type: "post",
+                data: { "id": id, "level": "3" },
+                dataType: "json",
+                success: function (s) {
+                    if (s != "") {
+                        var html = "<option value=''>请选择</option>";
+                        for (var i = 0; i < s.length; i++) {
+                            if (value === s[i].code) {
+                                html += "<option value=" + s[i].code + " selected='true'>" + s[i].name + "</option>";
+                            }
+                            else {
+                                html += "<option value=" + s[i].code + ">" + s[i].name + "</option>";
+                            }
+                        }
+                        $('#Region3').append(html);
+                        form.render('select');
+                    }
+                },
+                error: function (e) {
+                    console.log(e);
+                }
+            });
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,126 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="umassModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="engines">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="50" />
+          <Property Name="domain" Type="nvarchar" MaxLength="150" />
+          <Property Name="icon" Type="nvarchar" MaxLength="150" />
+          <Property Name="isenable" Type="int" />
+        </EntityType>
+        <EntityType Name="longtail">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="companyid" Type="int" />
+          <Property Name="name" Type="nvarchar" MaxLength="150" />
+          <Property Name="engineid" Type="int" />
+          <Property Name="paiming" Type="nvarchar" MaxLength="150" />
+          <Property Name="websiteid" Type="int" />
+          <Property Name="returnurl" Type="nvarchar" MaxLength="150" />
+          <Property Name="updatetime" Type="nvarchar" MaxLength="500" />
+          <Property Name="qushi" Type="nvarchar" MaxLength="10" />
+          <Property Name="liuliang" Type="nvarchar" MaxLength="10" />
+        </EntityType>
+        <EntityContainer Name="umassModelStoreContainer">
+          <EntitySet Name="engines" EntityType="Self.engines" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="longtail" EntityType="Self.longtail" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="umassModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="longtail">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="companyid" Type="Int32" />
+          <Property Name="name" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="engineid" Type="Int32" />
+          <Property Name="paiming" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="websiteid" Type="Int32" />
+          <Property Name="returnurl" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="updatetime" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="qushi" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="liuliang" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="umassEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="longtail" EntityType="Self.longtail" />
+          <EntitySet Name="engines" EntityType="umassModel.engine" />
+        </EntityContainer>
+        <EntityType Name="engine">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="domain" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="icon" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="isenable" Type="Int32" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="umassModelStoreContainer" CdmEntityContainer="umassEntities">
+          <EntitySetMapping Name="longtail">
+            <EntityTypeMapping TypeName="umassModel.longtail">
+              <MappingFragment StoreEntitySet="longtail">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="companyid" ColumnName="companyid" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="engineid" ColumnName="engineid" />
+                <ScalarProperty Name="paiming" ColumnName="paiming" />
+                <ScalarProperty Name="websiteid" ColumnName="websiteid" />
+                <ScalarProperty Name="returnurl" ColumnName="returnurl" />
+                <ScalarProperty Name="updatetime" ColumnName="updatetime" />
+                <ScalarProperty Name="qushi" ColumnName="qushi" />
+                <ScalarProperty Name="liuliang" ColumnName="liuliang" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="engines">
+            <EntityTypeMapping TypeName="umassModel.engine">
+              <MappingFragment StoreEntitySet="engines">
+                <ScalarProperty Name="isenable" ColumnName="isenable" />
+                <ScalarProperty Name="icon" ColumnName="icon" />
+                <ScalarProperty Name="domain" ColumnName="domain" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="无" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

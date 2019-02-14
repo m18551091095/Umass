@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="5d07ecbe68f541248bda6f4120070255" Name="Diagram1">
+        <EntityTypeShape EntityType="UdowsYunPublicModel.Area_51sole" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="UdowsYunPublicModel.Area_99inf" Width="1.5" PointX="2.75" PointY="0.75" />
+        <EntityTypeShape EntityType="UdowsYunPublicModel.Area_atobo" Width="1.5" PointX="0.75" PointY="3.75" />
+        <EntityTypeShape EntityType="UdowsYunPublicModel.Area_b2b168" Width="1.5" PointX="2.75" PointY="3.75" />
+        <EntityTypeShape EntityType="UdowsYunPublicModel.Area_gtobal" Width="1.5" PointX="4.75" PointY="0.75" />
+        <EntityTypeShape EntityType="UdowsYunPublicModel.Area_jqw" Width="1.5" PointX="4.75" PointY="3.75" />
+        <EntityTypeShape EntityType="UdowsYunPublicModel.B2B" Width="1.5" PointX="6.75" PointY="0.75" />
+        <EntityTypeShape EntityType="UdowsYunPublicModel.Company" Width="1.5" PointX="0.75" PointY="6.75" />
+        <EntityTypeShape EntityType="UdowsYunPublicModel.Company_51sole" Width="1.5" PointX="2.75" PointY="6.75" />
+        <EntityTypeShape EntityType="UdowsYunPublicModel.Company_99inf" Width="1.5" PointX="6.75" PointY="3.75" />
+        <EntityTypeShape EntityType="UdowsYunPublicModel.Company_atobo" Width="1.5" PointX="8.75" PointY="0.75" />
+        <EntityTypeShape EntityType="UdowsYunPublicModel.Company_b2b168" Width="1.5" PointX="4.75" PointY="8.75" />
+        <EntityTypeShape EntityType="UdowsYunPublicModel.Company_gtobal" Width="1.5" PointX="8.75" PointY="5.75" />
+        <EntityTypeShape EntityType="UdowsYunPublicModel.Company_jqw" Width="1.5" PointX="10.75" PointY="0.75" />
+        <EntityTypeShape EntityType="UdowsYunPublicModel.CompanyState" Width="1.5" PointX="10.75" PointY="5.75" />
+        <EntityTypeShape EntityType="UdowsYunPublicModel.Engines" Width="1.5" PointX="10.75" PointY="8.75" />
+        <EntityTypeShape EntityType="UdowsYunPublicModel.Industry_51sole" Width="1.5" PointX="6.75" PointY="11.75" />
+        <EntityTypeShape EntityType="UdowsYunPublicModel.Industry_99inf" Width="1.5" PointX="8.75" PointY="11.75" />
+        <EntityTypeShape EntityType="UdowsYunPublicModel.Industry_atobo" Width="1.5" PointX="10.75" PointY="11.75" />
+        <EntityTypeShape EntityType="UdowsYunPublicModel.Industry_b2b168" Width="1.5" PointX="12.75" PointY="0.75" />
+        <EntityTypeShape EntityType="UdowsYunPublicModel.Industry_gtobal" Width="1.5" PointX="12.75" PointY="3.75" />
+        <EntityTypeShape EntityType="UdowsYunPublicModel.Industry_jqw" Width="1.5" PointX="12.75" PointY="6.75" />
+        <EntityTypeShape EntityType="UdowsYunPublicModel.Info" Width="1.5" PointX="12.75" PointY="9.75" />
+        <EntityTypeShape EntityType="UdowsYunPublicModel.InfoState" Width="1.5" PointX="12.75" PointY="13.75" />
+        <EntityTypeShape EntityType="UdowsYunPublicModel.InfoType" Width="1.5" PointX="14.75" PointY="0.75" />
+        <EntityTypeShape EntityType="UdowsYunPublicModel.KeywordRanking" Width="1.5" PointX="0.75" PointY="14.75" />
+        <EntityTypeShape EntityType="UdowsYunPublicModel.KeywordType" Width="1.5" PointX="14.75" PointY="3.75" />
+        <EntityTypeShape EntityType="UdowsYunPublicModel.Material" Width="1.5" PointX="14.75" PointY="6.75" />
+        <EntityTypeShape EntityType="UdowsYunPublicModel.MaterialInfo" Width="1.5" PointX="6.75" PointY="14.75" />
+        <EntityTypeShape EntityType="UdowsYunPublicModel.SuccessInfo" Width="1.5" PointX="8.75" PointY="14.75" />
+        <EntityTypeShape EntityType="UdowsYunPublicModel.User" Width="1.5" PointX="14.75" PointY="9.75" />
+        <EntityTypeShape EntityType="UdowsYunPublicModel.UserControl" Width="1.5" PointX="14.75" PointY="12.75" />
+        <EntityTypeShape EntityType="UdowsYunPublicModel.UserRole" Width="1.5" PointX="2.75" PointY="15.75" />
+        <EntityTypeShape EntityType="UdowsYunPublicModel.PushInfoLog" Width="1.5" PointX="15.375" PointY="15.75" />
+        <EntityTypeShape EntityType="UdowsYunPublicModel.PublishRule" Width="1.5" PointX="11.375" PointY="16.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

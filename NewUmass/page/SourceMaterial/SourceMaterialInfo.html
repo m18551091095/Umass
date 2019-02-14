@@ -1,0 +1,103 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>认证概况</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=yes">
+    <link href="../../js/layui/css/layui.css" rel="stylesheet" />
+    <!--<link rel="stylesheet" href="../../layui/css/layui.css" media="all" />-->
+    <link rel="stylesheet" href="../../css/user.css" media="all" />
+</head>
+<body>
+    <button class="layui-btn" lay-submit="" lay-filter="btnSave">添加素材</button>
+    <table class="layui-hide" id="demo" lay-filter="demo"></table>
+    <script src="../../js/jquery-2.1.1.min.js"></script>
+    <script src="../../js/layui/layui.all.js"></script>
+<script type="text/html" id="barDemo">
+    <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
+    <a class="layui-btn layui-btn-xs" lay-event="delete">删除</a>
+    </script>
+    <script>
+        layui.use(['form', 'table', 'layer'],
+            function () {
+                var table = layui.table;
+                var form = layui.form;
+                var layer = layui.layer;
+                form.on('submit(btnSave)', function (data) {
+                   var index = layer.open({
+                        type: 2,
+                        title: '',
+                        shadeClose: true,
+                        shade: false,
+                        maxmin: true, //开启最大化最小化按钮
+                        area: ['550px', '320px'],
+                        content: 'MaterialInfoAdd.html?id=' + GetQueryString("id")
+                    });
+                    layer.full(index);
+                    return false;
+                });
+                table.render({
+                    elem: '#demo',
+                    url: '../../Handler/SourceMaterial.ashx?doType=SourceMaterialInfo&id=' + GetQueryString("id"),
+                    cellMinWidth: 80 //全局定义常规单元格的最小宽度，layui 2.2.1 新增
+                    ,
+                    cols: [
+                        [
+                            { field: 'id', width: 80, title: 'ID', sort: true },
+                            { field: 'Start', width: 100, title: '是否通过', sort: true },
+                            { field: 'demo', title: '操作', width: 100, toolbar: '#barDemo' }
+                        ]
+                    ]
+                    , page: true
+                });
+                table.on('tool(demo)',
+                    function (obj) {
+                        var data = obj.data;
+                        if (obj.event === 'edit') {
+                            layer.open({
+                                type: 2,
+                                title: '',
+                                shadeClose: true,
+                                shade: false,
+                                maxmin: true, //开启最大化最小化按钮
+                                area: ['550px', '320px'],
+                                content: 'MaterialInfoEdit.html?id=' + data.id
+                            });
+                        }
+                        else if (obj.event === 'delete') {
+                            layer.confirm('确认删除吗？', {
+                                btn: ['是', '否'] //按钮
+                            }, function () {
+                                $.ajax({
+                                    url: "../../Handler/SourceMaterial.ashx?doType=DeleteMaterialInfo",
+                                    type: "post",
+                                    dataType: "json",
+                                    data: { "id": data.id },
+                                    success: function (s) {
+                                        if (s.result === true) {
+                                            layer.alert(s.msg, { icon: 1 }, function () {
+                                                window.parent.location.reload();
+                                            });
+                                        }
+                                    },
+                                    error: function (e) {
+                                        console.log(e);
+                                    }
+                                });
+                            });
+                        }
+                    });
+            });
+        function GetQueryString(name) {
+            var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+            var r = window.location.search.substr(1).match(reg);
+            if (r != null) return unescape(r[2]); return null;
+        }
+    </script>
+</body>
+</html>

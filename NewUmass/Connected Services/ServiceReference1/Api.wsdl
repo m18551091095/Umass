@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="UploadLicense">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="bytes" type="s:base64Binary" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UploadLicenseResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UploadLicenseResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UploadInfoImg">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="bytes" type="s:base64Binary" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UploadInfoImgResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UploadInfoImgResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCompanyId">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="domain" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCompanyIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetCompanyIdResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateKeywordRanking">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="companyId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="typeId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="json" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateKeywordRankingResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdateKeywordRankingResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetLoginUrl">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="companyId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="b2bId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetLoginUrlResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetLoginUrlResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PushInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="infoId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="b2bId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PushInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PushInfoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="UploadLicenseSoapIn">
+    <wsdl:part name="parameters" element="tns:UploadLicense" />
+  </wsdl:message>
+  <wsdl:message name="UploadLicenseSoapOut">
+    <wsdl:part name="parameters" element="tns:UploadLicenseResponse" />
+  </wsdl:message>
+  <wsdl:message name="UploadInfoImgSoapIn">
+    <wsdl:part name="parameters" element="tns:UploadInfoImg" />
+  </wsdl:message>
+  <wsdl:message name="UploadInfoImgSoapOut">
+    <wsdl:part name="parameters" element="tns:UploadInfoImgResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCompanyIdSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCompanyId" />
+  </wsdl:message>
+  <wsdl:message name="GetCompanyIdSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCompanyIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateKeywordRankingSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateKeywordRanking" />
+  </wsdl:message>
+  <wsdl:message name="UpdateKeywordRankingSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateKeywordRankingResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetLoginUrlSoapIn">
+    <wsdl:part name="parameters" element="tns:GetLoginUrl" />
+  </wsdl:message>
+  <wsdl:message name="GetLoginUrlSoapOut">
+    <wsdl:part name="parameters" element="tns:GetLoginUrlResponse" />
+  </wsdl:message>
+  <wsdl:message name="PushInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:PushInfo" />
+  </wsdl:message>
+  <wsdl:message name="PushInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:PushInfoResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ApiSoap">
+    <wsdl:operation name="UploadLicense">
+      <wsdl:input message="tns:UploadLicenseSoapIn" />
+      <wsdl:output message="tns:UploadLicenseSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UploadInfoImg">
+      <wsdl:input message="tns:UploadInfoImgSoapIn" />
+      <wsdl:output message="tns:UploadInfoImgSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCompanyId">
+      <wsdl:input message="tns:GetCompanyIdSoapIn" />
+      <wsdl:output message="tns:GetCompanyIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateKeywordRanking">
+      <wsdl:input message="tns:UpdateKeywordRankingSoapIn" />
+      <wsdl:output message="tns:UpdateKeywordRankingSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLoginUrl">
+      <wsdl:input message="tns:GetLoginUrlSoapIn" />
+      <wsdl:output message="tns:GetLoginUrlSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PushInfo">
+      <wsdl:input message="tns:PushInfoSoapIn" />
+      <wsdl:output message="tns:PushInfoSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ApiSoap" type="tns:ApiSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="UploadLicense">
+      <soap:operation soapAction="http://tempuri.org/UploadLicense" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UploadInfoImg">
+      <soap:operation soapAction="http://tempuri.org/UploadInfoImg" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCompanyId">
+      <soap:operation soapAction="http://tempuri.org/GetCompanyId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateKeywordRanking">
+      <soap:operation soapAction="http://tempuri.org/UpdateKeywordRanking" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLoginUrl">
+      <soap:operation soapAction="http://tempuri.org/GetLoginUrl" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PushInfo">
+      <soap:operation soapAction="http://tempuri.org/PushInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ApiSoap12" type="tns:ApiSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="UploadLicense">
+      <soap12:operation soapAction="http://tempuri.org/UploadLicense" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UploadInfoImg">
+      <soap12:operation soapAction="http://tempuri.org/UploadInfoImg" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCompanyId">
+      <soap12:operation soapAction="http://tempuri.org/GetCompanyId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateKeywordRanking">
+      <soap12:operation soapAction="http://tempuri.org/UpdateKeywordRanking" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLoginUrl">
+      <soap12:operation soapAction="http://tempuri.org/GetLoginUrl" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PushInfo">
+      <soap12:operation soapAction="http://tempuri.org/PushInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Api">
+    <wsdl:port name="ApiSoap" binding="tns:ApiSoap">
+      <soap:address location="http://www.mass.udows.cn/Api.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ApiSoap12" binding="tns:ApiSoap12">
+      <soap12:address location="http://www.mass.udows.cn/Api.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
